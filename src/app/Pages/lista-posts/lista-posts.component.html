@@ -1,1 +1,26 @@
-<p>lista-posts works!</p>
+<div class="filtros mt-3">
+    <select (change)="onChange($event)">
+        <option value="todas">Todas las categorías</option>
+        <!-- @for (post of arrPosts; track $index) { -->
+        @for (cat of arrCategorias; track $index) {
+        <option>{{ cat }}</option>
+        }
+    </select>
+</div>
+
+
+<h1 class="mt-4">Todos los Posts</h1>
+
+<div class="posts mb-5">
+    @for (post of arrPosts; track post.id) {
+    <div class="post mt-2 mb-2">
+        <span class="badge text-bg-secondary">Categoria: {{ post.categoria }}</span>
+        <h3>{{ post.titulo }}</h3>
+        <img class="mb-2" [src]="post.imagen" alt="" />
+        <p>Autor: {{ post.autor }}</p>
+        <p>{{post.fecha}}</p>
+        <p>{{ post.texto}}</p>
+        <hr>
+    </div>
+    }
+</div>

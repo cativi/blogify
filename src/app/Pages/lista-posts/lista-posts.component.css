@@ -1,0 +1,6 @@
+div.post img {
+    width: 100%;
+    border-radius: 15px;
+    border: 1px solid black;
+    padding: 15px;
+}
