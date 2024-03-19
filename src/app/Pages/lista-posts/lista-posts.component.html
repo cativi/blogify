@@ -1,7 +1,6 @@
 <div class="filtros mt-3">
     <select (change)="onChange($event)">
         <option value="todas">Todas las categorías</option>
-        <!-- @for (post of arrPosts; track $index) { -->
         @for (cat of arrCategorias; track $index) {
         <option>{{ cat }}</option>
         }
@@ -18,7 +17,7 @@
         <h3>{{ post.titulo }}</h3>
         <img class="mb-2" [src]="post.imagen" alt="" />
         <p>Autor: {{ post.autor }}</p>
-        <p>{{post.fecha}}</p>
+        <p>{{post.fecha | date: 'dd/MM/yyyy'}}</p>
         <p>{{ post.texto}}</p>
         <hr>
     </div>

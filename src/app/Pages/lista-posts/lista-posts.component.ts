@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { Post } from '../../interfaces/post.interface';
 import { postService } from '../../services/post.service';
+import { DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-lista-posts',
   standalone: true,
-  imports: [],
+  imports: [DatePipe],
   templateUrl: './lista-posts.component.html',
   styleUrl: './lista-posts.component.css'
 })
@@ -23,7 +24,6 @@ export class ListaPostsComponent {
     this.arrCategorias = this.postService.getByCategoria();
   }
 
-  //TODO reparar filtro de categorías
   onChange($event: any) {
     if ($event.target.value === 'todas') {
       this.arrPosts = this.postService.getAll();

@@ -1,25 +1,25 @@
 <h1 class="mt-4">Publica un nuevo Post</h1>
 
 <form [formGroup]="formulario" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
-        <label class="form-label">Id</label>
-        <input type="text" class="form-control" formControlName="id"
-            placeholder="Escribe en formato número, ejemplo: 1" />
-    </div>
+
     <div class="mb-3">
         <label class="form-label">Título</label>
         <input type="text" class="form-control" formControlName="titulo" placeholder="Escribe el título de tu Post" />
+
         @if (checkError("titulo", "required")) {
         <p class="error">El campo título es requerido</p>
         }
+
     </div>
     <div class="mb-3">
         <label class="form-label">Texto</label>
         <textarea class="form-control" formControlName="texto" rows="5"
             placeholder="Escribe el cuerpo del artículo"></textarea>
+
         @if (checkError("texto", "required")) {
         <p class="error">Rellenar el texto es requerido</p>
         }
+
     </div>
     <div class="mb-3">
         <label class="form-label">Autor</label>
@@ -31,11 +31,11 @@
     <div class="mb-3">
         <label class="form-label">Imagen</label>
         <input type="text" class="form-control" formControlName="imagen"
-            placeholder="Pon aquí la URL donde esté alojada la imagen" />
+            placeholder="Pon aquí la URL donde esté alojada la imagen, ejemplo: https://www.mariposas.wiki/Imagenes/imagenes-de-mariposas-bonitas.jpg" />
     </div>
     <div class="mb-3">
         <label class="form-label">Fecha</label>
-        <input type="text" class="form-control" formControlName="fecha"
+        <input type="date" class="form-control" formControlName="fecha"
             placeholder="Escribe en formato fecha (Día/Mes/Año)" />
         @if (checkError("fecha", "required")) {
         <p class="error">El campo fecha es requerido</p>
@@ -49,5 +49,5 @@
         <p class="error">El campo categoría es requerido</p>
         }
     </div>
-    <input type="submit" value="Publicar" class="btn btn-primary" />
+    <input type="submit" value="Publicar" class="btn btn-primary" [disabled]="!formulario.valid" />
 </form>
